@@ -4,7 +4,7 @@
 
 Submitted by: **Hannah Ryan**
 
-Time spent: **3** hours spent in total
+Time spent: **4** hours spent in total
 
 ## User Stories
 
@@ -28,7 +28,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://giphy.com/embed/RIMVcpQmKiBKmQC1PC' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
+<img src='https://media.giphy.com/media/RIMVcpQmKiBKmQC1PC/giphy.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
 
 GIF created with [GIPHY]
 
