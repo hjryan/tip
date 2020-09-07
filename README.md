@@ -17,7 +17,7 @@ The following **optional** features are implemented:
 
 * [ ] UI animations
 * [ ] Remembering the bill amount across app restarts (if <10mins)
-* [ ] Using locale-specific currency and currency thousands separators.
+* [x] Using locale-specific currency and currency thousands separators.
 * [x] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 The following **additional** features are implemented:
@@ -29,13 +29,15 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://media.giphy.com/media/iEvHP5HpVteUnt11FU/giphy.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
+<img src='https://media.giphy.com/media/WsLP8J9sEz78McGAlp/giphy.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
 
 GIF created with GIPHY
 
 ## Notes
 
-In order to get the view somewhat centered, I had to align the right side further left than I had expected!
+In order to get the view somewhat centered, I had to align the right side further left than I had expected.
+I ran into issues with the input when using a comma instead of a period -- this reset the saved variable to zero.
+When trying to split currency formatting into its own function (to be used independently both upon loading the initial zeros and when changing the bill amount), I ran into unwrapping issues.
 
 ## License
 
