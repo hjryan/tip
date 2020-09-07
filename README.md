@@ -29,7 +29,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://media.giphy.com/media/JrGIgEFtGKOJiWdoB0/giphy.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
+<img src='https://media.giphy.com/media/iEvHP5HpVteUnt11FU/giphy.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
 
 GIF created with GIPHY
 
