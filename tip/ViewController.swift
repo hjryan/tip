@@ -8,19 +8,57 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    
+    
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var billAmountTextField: UITextField!
     @IBOutlet weak var tipPercentageLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view
+        // Access UserDefaults
+        let defaults = UserDefaults.standard
+        // Get an Integer value.
+        let intValue = defaults.integer(forKey: "myInt")
+        // Set selected segment index to default from settings
+        tipControl.selectedSegmentIndex = intValue
+        
     }
+
 
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("view will appear")
+        // This is a good place to retrieve the default tip percentage from UserDefaults
+        // and use it to update the tip amount
+        // Access UserDefaults
+        let defaults = UserDefaults.standard
+        // Get an Integer value.
+        let intValue = defaults.integer(forKey: "myInt")
+        // Set selected segment index to default from settings
+        tipControl.selectedSegmentIndex = intValue
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear")
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("view will disappear")
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did disappear")
     }
     
     @IBAction func calculateTip(_ sender: Any) {
@@ -33,6 +71,7 @@ class ViewController: UIViewController {
         //Update the tip and total labels
         tipPercentageLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        print("hello")
     }
 }
 
