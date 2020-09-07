@@ -14,22 +14,22 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded")
-        // Do any additional setup after loading the view.
+        // do any additional setup after loading the view.
         
-        // Access UserDefaults
+        // access UserDefaults
         let defaults = UserDefaults.standard
-        // Access defaultTip
+        // access defaultTip
         let defaultTipValue = defaults.integer(forKey: "defaultTip")
-        // Set selected segment to saved default
+        // set selected segment to saved default
         tipControl.selectedSegmentIndex = defaultTipValue
     }
     
     @IBAction func changeDefaultTip(_ sender: Any) {
-        // Access UserDefaults
+        // access UserDefaults
         let defaults = UserDefaults.standard
-        // Save selected segment
+        // save selected segment
         defaults.set(Int(tipControl.selectedSegmentIndex), forKey: "defaultTip")
-        // Force UserDefaults to save
+        // force UserDefaults to save
         defaults.synchronize()
         print("default tip set to segment index:", defaults.integer(forKey: "defaultTip"))
     }
