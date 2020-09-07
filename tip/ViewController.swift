@@ -73,6 +73,7 @@ class ViewController: UIViewController {
         print("view did disappear")
     }
     
+
     
     @IBAction func calculateTip(_ sender: Any) {
         // currency -- from https://supereasyapps.com/blog/2016/2/8/how-to-use-nsnumberformatter-in-swift-to-make-currency-numbers-easy-to-read
@@ -83,7 +84,18 @@ class ViewController: UIViewController {
         currencyFormatter.locale = Locale.current
         
         // get the initial bill amount
-        let bill = Double(billAmountTextField.text!) ?? 0
+        // declare bill -- handle both inputs XXX.XX & XXX,XX
+        var bill : Double
+        var billText = String(billAmountTextField.text ?? "")
+        // XXX,XX
+        if (billText.contains(",")){
+            billText = billText.replacingOccurrences(of: ",", with: ".")
+            bill = Double(billText) ?? 0
+        }
+        // XXX.XX, nil, XXX
+        else {
+            bill = Double(billAmountTextField.text!) ?? 0
+        }
         // create list of tip options in segments
         let tipPercentages = [0.18, 0.2, 0.22]
         // find user-selected tip percentage
