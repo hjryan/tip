@@ -31,17 +31,28 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("view will appear")
-        // This is a good place to retrieve the default tip percentage from UserDefaults
-        // and use it to update the tip amount
+
         // Access UserDefaults
         let defaults = UserDefaults.standard
-        // Get an Integer value.
-        let intValue = defaults.integer(forKey: "myInt")
+        // Find default tip
+        let defaultTipValue = defaults.integer(forKey: "defaultTip")
         // Set selected segment index to default from settings
-        tipControl.selectedSegmentIndex = intValue
+        tipControl.selectedSegmentIndex = defaultTipValue
+        
         // Automatically pull up keyboard & select bill field
         billAmountTextField.becomeFirstResponder()
         
+        
+        //Currency -- from https://supereasyapps.com/blog/2016/2/8/how-to-use-nsnumberformatter-in-swift-to-make-currency-numbers-easy-to-read
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        // localize to your grouping and decimal separator
+        currencyFormatter.locale = Locale.current
+        // Load correctly formatted zeros
+        perPersonTotal.text = currencyFormatter.string(from: NSNumber(value: 0.00))!
+        tipPercentageLabel.text = currencyFormatter.string(from: NSNumber(value: 0.00))!
+        totalLabel.text = currencyFormatter.string(from: NSNumber(value: 0.00))!
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -59,9 +70,19 @@ class ViewController: UIViewController {
         print("view did disappear")
     }
     
+    
     @IBAction func calculateTip(_ sender: Any) {
+        //Currency -- from https://supereasyapps.com/blog/2016/2/8/how-to-use-nsnumberformatter-in-swift-to-make-currency-numbers-easy-to-read
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        // localize to your grouping and decimal separator
+        currencyFormatter.locale = Locale.current
+        
+        
         //Get the initial bill amount and tip percentages
         let bill = Double(billAmountTextField.text!) ?? 0
+        print(bill)
         let tipPercentages = [0.18, 0.2, 0.22]
         //Calculate the tip and total cost
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
@@ -69,10 +90,10 @@ class ViewController: UIViewController {
         //Get party size & display
         partySizeLabel.text = String(Int(partySize.value))
         //Get total per person in party & display
-        perPersonTotal.text = String(format: "$%.2f", total/Double(Int(partySize.value)))
+        perPersonTotal.text = currencyFormatter.string(from: NSNumber(value: total/Double(Int(partySize.value))))!
         //Update the tip and total labels
-        tipPercentageLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        tipPercentageLabel.text = currencyFormatter.string(from: NSNumber(value: tip))!
+        totalLabel.text = currencyFormatter.string(from: NSNumber(value: total))!
     }
 }
 
