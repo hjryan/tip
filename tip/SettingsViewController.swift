@@ -22,6 +22,12 @@ class SettingsViewController: UIViewController {
         let defaultTipValue = defaults.integer(forKey: "defaultTip")
         // set selected segment to saved default
         tipControl.selectedSegmentIndex = defaultTipValue
+        
+        // format view controller from https://stackoverflow.com/questions/42667744/swift-how-to-set-default-text-color-for-uisegmentedcontrol
+        // selected option color
+        tipControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], for: .selected)
+        // color of other options
+        tipControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], for: .normal)
     }
     
     @IBAction func changeDefaultTip(_ sender: Any) {
