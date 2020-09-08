@@ -4,7 +4,7 @@
 
 Submitted by: **Hannah Ryan**
 
-Time spent: **7** hours spent in total
+Time spent: **9** hours spent in total
 
 ## User Stories
 
@@ -29,14 +29,14 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://media.giphy.com/media/WsLP8J9sEz78McGAlp/giphy.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
+<img src='https://media.giphy.com/media/Kzia91Vv0TzXYSF75G/giphy.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
 
 GIF created with GIPHY
 
 ## Notes
 
 In order to get the view somewhat centered, I had to align the right side further left than I had expected.
-I ran into issues with the input when using a comma instead of a period -- this reset the saved variable to zero.
+I ran into issues with the input when using a comma instead of a period and implemented special handling.
 When trying to split currency formatting into its own function (to be used independently both upon loading the initial zeros and when changing the bill amount), I ran into unwrapping issues.
 
 ## License
